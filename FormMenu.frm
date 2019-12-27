@@ -237,13 +237,14 @@ Begin VB.Form FormMenu
          Width           =   3375
       End
       Begin MSDataGridLib.DataGrid DataGrid1 
-         Height          =   3735
+         Bindings        =   "FormMenu.frx":0000
+         Height          =   3495
          Left            =   360
          TabIndex        =   23
-         Top             =   360
+         Top             =   480
          Width           =   3495
          _ExtentX        =   6165
-         _ExtentY        =   6588
+         _ExtentY        =   6165
          _Version        =   393216
          HeadLines       =   1
          RowHeight       =   15
@@ -301,12 +302,12 @@ Begin VB.Form FormMenu
          EndProperty
       End
       Begin MSAdodcLib.Adodc Adodc1 
-         Height          =   615
-         Left            =   720
-         Top             =   840
+         Height          =   375
+         Left            =   360
+         Top             =   720
          Width           =   2295
          _ExtentX        =   4048
-         _ExtentY        =   1085
+         _ExtentY        =   661
          ConnectMode     =   0
          CursorLocation  =   3
          IsolationLevel  =   -1
@@ -314,7 +315,7 @@ Begin VB.Form FormMenu
          CommandTimeout  =   30
          CursorType      =   3
          LockType        =   3
-         CommandType     =   8
+         CommandType     =   2
          CursorOptions   =   0
          CacheSize       =   50
          MaxRecords      =   0
@@ -326,14 +327,14 @@ Begin VB.Form FormMenu
          ForeColor       =   -2147483640
          Orientation     =   0
          Enabled         =   -1
-         Connect         =   ""
-         OLEDBString     =   ""
+         Connect         =   "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\shayank\Documents\GitHub\Cafe-System\DBCAFE.mdb;Persist Security Info=False"
+         OLEDBString     =   "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\shayank\Documents\GitHub\Cafe-System\DBCAFE.mdb;Persist Security Info=False"
          OLEDBFile       =   ""
          DataSourceName  =   ""
          OtherAttributes =   ""
          UserName        =   ""
          Password        =   ""
-         RecordSource    =   ""
+         RecordSource    =   "CASHIERTABLE"
          Caption         =   "Adodc1"
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
