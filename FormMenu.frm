@@ -12,9 +12,18 @@ Begin VB.Form FormMenu
    ScaleHeight     =   9510
    ScaleWidth      =   15345
    StartUpPosition =   3  'Windows Default
-   Begin VB.Frame Frame6 
+   Begin VB.Frame FrameDessert 
       BackColor       =   &H00FFFFC0&
       Caption         =   "Dessert Menu"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   4815
       Left            =   360
       TabIndex        =   38
@@ -56,7 +65,6 @@ Begin VB.Form FormMenu
          Height          =   495
          Left            =   6360
          TabIndex        =   39
-         Text            =   "Text4"
          Top             =   4080
          Width           =   2895
       End
@@ -94,9 +102,18 @@ Begin VB.Form FormMenu
          Width           =   1935
       End
    End
-   Begin VB.Frame Frame5 
+   Begin VB.Frame FrameDrinks 
       BackColor       =   &H00C0C0FF&
       Caption         =   "Drinks Menu"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   4815
       Left            =   360
       TabIndex        =   29
@@ -138,7 +155,6 @@ Begin VB.Form FormMenu
          Height          =   495
          Left            =   6360
          TabIndex        =   30
-         Text            =   "Text4"
          Top             =   4080
          Width           =   2895
       End
@@ -350,9 +366,18 @@ Begin VB.Form FormMenu
          Width           =   3375
       End
    End
-   Begin VB.Frame Frame3 
+   Begin VB.Frame FrameFood 
       BackColor       =   &H00C0FFC0&
       Caption         =   "Food Menu"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   4815
       Left            =   360
       TabIndex        =   13
@@ -362,7 +387,6 @@ Begin VB.Form FormMenu
          Height          =   495
          Left            =   6360
          TabIndex        =   21
-         Text            =   "Text4"
          Top             =   4080
          Width           =   2895
       End
@@ -451,7 +475,6 @@ Begin VB.Form FormMenu
          Height          =   495
          Left            =   2280
          TabIndex        =   11
-         Text            =   "Text1"
          Top             =   360
          Width           =   2295
       End
@@ -477,6 +500,15 @@ Begin VB.Form FormMenu
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0E0FF&
       Caption         =   "Menu Options"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   2055
       Left            =   360
       TabIndex        =   0
@@ -559,3 +591,20 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Option1_Click()
+FrameFood.Visible = True
+FrameDrinks.Visible = False
+FrameDessert.Visible = False
+End Sub
+
+Private Sub Option2_Click()
+FrameFood.Visible = False
+FrameDrinks.Visible = True
+FrameDessert.Visible = False
+End Sub
+
+Private Sub Option3_Click()
+FrameFood.Visible = False
+FrameDrinks.Visible = False
+FrameDessert.Visible = True
+End Sub
