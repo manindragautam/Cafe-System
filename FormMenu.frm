@@ -33,7 +33,7 @@ Begin VB.Form FormMenu
          Height          =   315
          Left            =   240
          TabIndex        =   43
-         Text            =   "Dessert Choices"
+         Text            =   "Select Dessert"
          Top             =   600
          Width           =   4095
       End
@@ -102,9 +102,9 @@ Begin VB.Form FormMenu
          Width           =   1935
       End
    End
-   Begin VB.Frame FrameDrinks 
+   Begin VB.Frame FrameBeverage 
       BackColor       =   &H00C0C0FF&
-      Caption         =   "Drinks Menu"
+      Caption         =   "Beverage Menu"
       BeginProperty Font 
          Name            =   "Britannic Bold"
          Size            =   12
@@ -123,7 +123,7 @@ Begin VB.Form FormMenu
          Height          =   315
          Left            =   240
          TabIndex        =   34
-         Text            =   "Drinks Choices"
+         Text            =   "Select Beverage"
          Top             =   600
          Width           =   4095
       End
@@ -334,7 +334,7 @@ Begin VB.Form FormMenu
          OtherAttributes =   ""
          UserName        =   ""
          Password        =   ""
-         RecordSource    =   "CASHIERTABLE"
+         RecordSource    =   "CHECKOUTTABLE"
          Caption         =   "Adodc1"
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -419,7 +419,7 @@ Begin VB.Form FormMenu
          Height          =   315
          Left            =   240
          TabIndex        =   14
-         Text            =   "Food Choices"
+         Text            =   "Select Food"
          Top             =   600
          Width           =   4095
       End
@@ -490,7 +490,7 @@ Begin VB.Form FormMenu
       End
       Begin VB.Label Label5 
          BackStyle       =   0  'Transparent
-         Caption         =   "Buyer's Name          :"
+         Caption         =   "Customer Name      :"
          Height          =   375
          Left            =   240
          TabIndex        =   9
@@ -500,7 +500,7 @@ Begin VB.Form FormMenu
    End
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0E0FF&
-      Caption         =   "Menu Options"
+      Caption         =   "Menu Selection"
       BeginProperty Font 
          Name            =   "Britannic Bold"
          Size            =   12
@@ -550,7 +550,7 @@ Begin VB.Form FormMenu
       End
       Begin VB.Label Label2 
          BackStyle       =   0  'Transparent
-         Caption         =   "Drinks Menu"
+         Caption         =   "Beverage Menu"
          Height          =   375
          Left            =   720
          TabIndex        =   5
@@ -594,18 +594,18 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Option1_Click()
 FrameFood.Visible = True
-FrameDrinks.Visible = False
+FrameBeverage.Visible = False
 FrameDessert.Visible = False
 End Sub
 
 Private Sub Option2_Click()
 FrameFood.Visible = False
-FrameDrinks.Visible = True
+FrameBeverage.Visible = True
 FrameDessert.Visible = False
 End Sub
 
 Private Sub Option3_Click()
 FrameFood.Visible = False
-FrameDrinks.Visible = False
+FrameBeverage.Visible = False
 FrameDessert.Visible = True
 End Sub
