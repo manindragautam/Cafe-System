@@ -29,7 +29,7 @@ Begin VB.Form FormMenu
       TabIndex        =   38
       Top             =   3840
       Width           =   9615
-      Begin VB.ComboBox Combo4 
+      Begin VB.ComboBox DessertSelector 
          Height          =   315
          Left            =   240
          TabIndex        =   43
@@ -37,21 +37,21 @@ Begin VB.Form FormMenu
          Top             =   600
          Width           =   4095
       End
-      Begin VB.TextBox Text11 
+      Begin VB.TextBox DessertPriceText 
          Height          =   375
          Left            =   1920
          TabIndex        =   42
          Top             =   1200
          Width           =   2415
       End
-      Begin VB.TextBox Text10 
+      Begin VB.TextBox DessertQuantityText 
          Height          =   375
          Left            =   1920
          TabIndex        =   41
          Top             =   1800
          Width           =   2415
       End
-      Begin VB.CommandButton Command6 
+      Begin VB.CommandButton DessertAddButton 
          BackColor       =   &H00C0E0FF&
          Caption         =   "ADD"
          Height          =   615
@@ -61,7 +61,7 @@ Begin VB.Form FormMenu
          Top             =   2760
          Width           =   1695
       End
-      Begin VB.TextBox Text9 
+      Begin VB.TextBox DessertTotalPriceText 
          Height          =   495
          Left            =   6360
          TabIndex        =   39
@@ -86,11 +86,12 @@ Begin VB.Form FormMenu
          Top             =   1800
          Width           =   2175
       End
-      Begin VB.Image Image3 
-         Height          =   3135
+      Begin VB.Image DessertImage 
+         Height          =   3600
          Left            =   4680
+         Stretch         =   -1  'True
          Top             =   600
-         Width           =   4575
+         Width           =   3600
       End
       Begin VB.Label Label14 
          BackStyle       =   0  'Transparent
@@ -119,7 +120,7 @@ Begin VB.Form FormMenu
       TabIndex        =   29
       Top             =   3840
       Width           =   9615
-      Begin VB.ComboBox Combo3 
+      Begin VB.ComboBox BeverageSelector 
          Height          =   315
          Left            =   240
          TabIndex        =   34
@@ -127,21 +128,21 @@ Begin VB.Form FormMenu
          Top             =   600
          Width           =   4095
       End
-      Begin VB.TextBox Text8 
+      Begin VB.TextBox BeveragePriceText 
          Height          =   375
          Left            =   1920
          TabIndex        =   33
          Top             =   1200
          Width           =   2415
       End
-      Begin VB.TextBox Text7 
+      Begin VB.TextBox BeverageQuantityText 
          Height          =   375
          Left            =   1920
          TabIndex        =   32
          Top             =   1800
          Width           =   2415
       End
-      Begin VB.CommandButton Command5 
+      Begin VB.CommandButton BeverageAddButton 
          BackColor       =   &H00C0E0FF&
          Caption         =   "ADD"
          Height          =   615
@@ -151,7 +152,7 @@ Begin VB.Form FormMenu
          Top             =   2760
          Width           =   1695
       End
-      Begin VB.TextBox Text6 
+      Begin VB.TextBox BeverageTotalPriceText 
          Height          =   495
          Left            =   6360
          TabIndex        =   30
@@ -176,11 +177,12 @@ Begin VB.Form FormMenu
          Top             =   1800
          Width           =   2175
       End
-      Begin VB.Image Image2 
-         Height          =   3135
+      Begin VB.Image BeverageImage 
+         Height          =   3600
          Left            =   4680
+         Stretch         =   -1  'True
          Top             =   600
-         Width           =   4575
+         Width           =   3600
       End
       Begin VB.Label Label11 
          BackStyle       =   0  'Transparent
@@ -384,14 +386,14 @@ Begin VB.Form FormMenu
       TabIndex        =   13
       Top             =   3840
       Width           =   9615
-      Begin VB.TextBox Text4 
+      Begin VB.TextBox FoodTotalPriceText 
          Height          =   495
          Left            =   6360
          TabIndex        =   21
          Top             =   4080
          Width           =   2895
       End
-      Begin VB.CommandButton Command1 
+      Begin VB.CommandButton FoodAddButton 
          BackColor       =   &H00C0E0FF&
          Caption         =   "ADD"
          Height          =   615
@@ -401,21 +403,21 @@ Begin VB.Form FormMenu
          Top             =   2760
          Width           =   1695
       End
-      Begin VB.TextBox Text3 
+      Begin VB.TextBox FoodQuantityText 
          Height          =   375
          Left            =   1920
          TabIndex        =   18
          Top             =   1800
          Width           =   2415
       End
-      Begin VB.TextBox Text2 
+      Begin VB.TextBox FoodPriceText 
          Height          =   375
          Left            =   1920
          TabIndex        =   17
          Top             =   1200
          Width           =   2415
       End
-      Begin VB.ComboBox Combo2 
+      Begin VB.ComboBox FoodSelector 
          Height          =   315
          Left            =   240
          TabIndex        =   14
@@ -432,11 +434,12 @@ Begin VB.Form FormMenu
          Top             =   4200
          Width           =   1935
       End
-      Begin VB.Image Image1 
-         Height          =   3135
+      Begin VB.Image FoodImage 
+         Height          =   3600
          Left            =   4680
+         Stretch         =   -1  'True
          Top             =   600
-         Width           =   4575
+         Width           =   3600
       End
       Begin VB.Label Label8 
          BackStyle       =   0  'Transparent
@@ -515,7 +518,7 @@ Begin VB.Form FormMenu
       TabIndex        =   0
       Top             =   1440
       Width           =   3375
-      Begin VB.OptionButton Option3 
+      Begin VB.OptionButton DessertRadioSwitch 
          BackColor       =   &H00C0E0FF&
          Height          =   240
          Left            =   240
@@ -523,7 +526,7 @@ Begin VB.Form FormMenu
          Top             =   1440
          Width           =   375
       End
-      Begin VB.OptionButton Option2 
+      Begin VB.OptionButton BeverageRadioSwitch 
          BackColor       =   &H00C0E0FF&
          Height          =   240
          Left            =   240
@@ -531,7 +534,7 @@ Begin VB.Form FormMenu
          Top             =   960
          Width           =   375
       End
-      Begin VB.OptionButton Option1 
+      Begin VB.OptionButton FoodRadioSwitch 
          BackColor       =   &H00C0E0FF&
          Height          =   240
          Left            =   240
@@ -567,6 +570,144 @@ Begin VB.Form FormMenu
          Width           =   1935
       End
    End
+   Begin MSAdodcLib.Adodc FoodAdodc 
+      Height          =   375
+      Left            =   720
+      Top             =   4080
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Adodc2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc BeverageAdodc 
+      Height          =   330
+      Left            =   720
+      Top             =   4800
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Adodc2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DessertAdodc 
+      Height          =   375
+      Left            =   720
+      Top             =   5400
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Adodc2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
    Begin VB.Label Label4 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
@@ -592,20 +733,94 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Option1_Click()
-FrameFood.Visible = True
-FrameBeverage.Visible = False
-FrameDessert.Visible = False
+Private Sub BeverageQuantityText_Change()
+BeverageTotalPriceText.Text = Val(BeverageQuantityText.Text) * Val(BeveragePriceText.Text)
 End Sub
 
-Private Sub Option2_Click()
+Private Sub BeverageRadioSwitch_Click()
 FrameFood.Visible = False
 FrameBeverage.Visible = True
 FrameDessert.Visible = False
 End Sub
 
-Private Sub Option3_Click()
+Private Sub BeverageSelector_Click()
+BeverageAdodc.Recordset.Filter = " BEVERAGE = '" & BeverageSelector & "'"
+BeveragePriceText.Text = BeverageAdodc.Recordset!PRICE
+stb = BeverageAdodc.Recordset!Picture
+BeverageImage.Picture = LoadPicture(stb)
+End Sub
+
+Private Sub DessertQuantityText_Change()
+DessertTotalPriceText.Text = Val(DessertQuantityText.Text) * Val(DessertPriceText.Text)
+End Sub
+
+Private Sub DessertRadioSwitch_Click()
 FrameFood.Visible = False
 FrameBeverage.Visible = False
 FrameDessert.Visible = True
+End Sub
+
+Private Sub DessertSelector_Click()
+DessertAdodc.Recordset.Filter = " DESSERT = '" & DessertSelector & "'"
+DessertPriceText.Text = DessertAdodc.Recordset!PRICE
+stb = DessertAdodc.Recordset!Picture
+DessertImage.Picture = LoadPicture(stb)
+End Sub
+
+Private Sub FoodQuantityText_Change()
+FoodTotalPriceText.Text = Val(FoodQuantityText.Text) * Val(FoodPriceText.Text)
+End Sub
+
+Private Sub FoodRadioSwitch_Click()
+FrameFood.Visible = True
+FrameBeverage.Visible = False
+FrameDessert.Visible = False
+End Sub
+
+Private Sub FoodSelector_Click()
+FoodAdodc.Recordset.Filter = " FOOD = '" & FoodSelector & "'"
+FoodPriceText.Text = FoodAdodc.Recordset!PRICE
+stb = FoodAdodc.Recordset!Picture
+FoodImage.Picture = LoadPicture(stb)
+End Sub
+
+Private Sub Form_Activate()
+Call Connect_DB
+FoodAdodc.ConnectionString = Connection.ConnectionString
+FoodAdodc.RecordSource = "Select * From FOODTABLE"
+FoodAdodc.Refresh
+FoodSelector.Clear
+FoodSelector = "Select Food"
+With FoodAdodc.Recordset
+Do While Not .EOF
+FoodSelector.AddItem !FOOD
+FoodAdodc.Recordset.MoveNext
+Loop
+End With
+
+Call Connect_DB
+BeverageAdodc.ConnectionString = Connection.ConnectionString
+BeverageAdodc.RecordSource = "Select * From BEVERAGETABLE"
+BeverageAdodc.Refresh
+BeverageSelector.Clear
+BeverageSelector = "Select Beverage"
+With BeverageAdodc.Recordset
+Do While Not .EOF
+BeverageSelector.AddItem !BEVERAGE
+BeverageAdodc.Recordset.MoveNext
+Loop
+End With
+
+Call Connect_DB
+DessertAdodc.ConnectionString = Connection.ConnectionString
+DessertAdodc.RecordSource = "Select * From DESSERTTABLE"
+DessertAdodc.Refresh
+DessertSelector.Clear
+DessertSelector = "Select Food"
+With DessertAdodc.Recordset
+Do While Not .EOF
+DessertSelector.AddItem !DESSERT
+DessertAdodc.Recordset.MoveNext
+Loop
+End With
 End Sub
