@@ -630,6 +630,11 @@ MsgBox "New Menu Saved Successfully", vbInformation, "New Input Menu"
 End With
 End Sub
 
+Private Sub Command3_Click()
+FormCashier.Show
+FormDataMenu.Hide
+End Sub
+
 Private Sub DataNewButton_Click()
 Call clean
 End Sub

@@ -12,188 +12,6 @@ Begin VB.Form FormMenu
    ScaleHeight     =   9510
    ScaleWidth      =   15345
    StartUpPosition =   3  'Windows Default
-   Begin VB.Frame FrameDessert 
-      BackColor       =   &H00FFFFC0&
-      Caption         =   "Dessert Menu"
-      BeginProperty Font 
-         Name            =   "Britannic Bold"
-         Size            =   12
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   4815
-      Left            =   360
-      TabIndex        =   38
-      Top             =   3840
-      Width           =   9615
-      Begin VB.ComboBox DessertSelector 
-         Height          =   315
-         Left            =   240
-         TabIndex        =   43
-         Text            =   "Select Dessert"
-         Top             =   600
-         Width           =   4095
-      End
-      Begin VB.TextBox DessertPriceText 
-         Height          =   375
-         Left            =   1920
-         TabIndex        =   42
-         Top             =   1200
-         Width           =   2415
-      End
-      Begin VB.TextBox DessertQuantityText 
-         Height          =   375
-         Left            =   1920
-         TabIndex        =   41
-         Top             =   1800
-         Width           =   2415
-      End
-      Begin VB.CommandButton DessertAddButton 
-         BackColor       =   &H00C0E0FF&
-         Caption         =   "ADD"
-         Height          =   615
-         Left            =   240
-         Style           =   1  'Graphical
-         TabIndex        =   40
-         Top             =   2760
-         Width           =   1695
-      End
-      Begin VB.TextBox DessertTotalPriceText 
-         Height          =   495
-         Left            =   6360
-         TabIndex        =   39
-         Top             =   4080
-         Width           =   2895
-      End
-      Begin VB.Label Label16 
-         BackStyle       =   0  'Transparent
-         Caption         =   "Price"
-         Height          =   375
-         Left            =   240
-         TabIndex        =   46
-         Top             =   1200
-         Width           =   1815
-      End
-      Begin VB.Label Label15 
-         BackStyle       =   0  'Transparent
-         Caption         =   "Lots"
-         Height          =   495
-         Left            =   240
-         TabIndex        =   45
-         Top             =   1800
-         Width           =   2175
-      End
-      Begin VB.Image DessertImage 
-         Height          =   3600
-         Left            =   4680
-         Stretch         =   -1  'True
-         Top             =   600
-         Width           =   3600
-      End
-      Begin VB.Label Label14 
-         BackStyle       =   0  'Transparent
-         Caption         =   "TOTAL PRICE (Rs.)"
-         Height          =   375
-         Left            =   4680
-         TabIndex        =   44
-         Top             =   4200
-         Width           =   1935
-      End
-   End
-   Begin VB.Frame FrameBeverage 
-      BackColor       =   &H00C0C0FF&
-      Caption         =   "Beverage Menu"
-      BeginProperty Font 
-         Name            =   "Britannic Bold"
-         Size            =   12
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   4815
-      Left            =   360
-      TabIndex        =   29
-      Top             =   3840
-      Width           =   9615
-      Begin VB.ComboBox BeverageSelector 
-         Height          =   315
-         Left            =   240
-         TabIndex        =   34
-         Text            =   "Select Beverage"
-         Top             =   600
-         Width           =   4095
-      End
-      Begin VB.TextBox BeveragePriceText 
-         Height          =   375
-         Left            =   1920
-         TabIndex        =   33
-         Top             =   1200
-         Width           =   2415
-      End
-      Begin VB.TextBox BeverageQuantityText 
-         Height          =   375
-         Left            =   1920
-         TabIndex        =   32
-         Top             =   1800
-         Width           =   2415
-      End
-      Begin VB.CommandButton BeverageAddButton 
-         BackColor       =   &H00C0E0FF&
-         Caption         =   "ADD"
-         Height          =   615
-         Left            =   240
-         Style           =   1  'Graphical
-         TabIndex        =   31
-         Top             =   2760
-         Width           =   1695
-      End
-      Begin VB.TextBox BeverageTotalPriceText 
-         Height          =   495
-         Left            =   6360
-         TabIndex        =   30
-         Top             =   4080
-         Width           =   2895
-      End
-      Begin VB.Label Label13 
-         BackStyle       =   0  'Transparent
-         Caption         =   "Price"
-         Height          =   375
-         Left            =   240
-         TabIndex        =   37
-         Top             =   1200
-         Width           =   1815
-      End
-      Begin VB.Label Label12 
-         BackStyle       =   0  'Transparent
-         Caption         =   "Lots"
-         Height          =   495
-         Left            =   240
-         TabIndex        =   36
-         Top             =   1800
-         Width           =   2175
-      End
-      Begin VB.Image BeverageImage 
-         Height          =   3600
-         Left            =   4680
-         Stretch         =   -1  'True
-         Top             =   600
-         Width           =   3600
-      End
-      Begin VB.Label Label11 
-         BackStyle       =   0  'Transparent
-         Caption         =   "TOTAL PRICE (Rs.)"
-         Height          =   375
-         Left            =   4680
-         TabIndex        =   35
-         Top             =   4200
-         Width           =   1935
-      End
-   End
    Begin VB.Frame Frame4 
       BackColor       =   &H00C0E0FF&
       Height          =   8295
@@ -221,7 +39,7 @@ Begin VB.Form FormMenu
          Top             =   6960
          Width           =   975
       End
-      Begin VB.CommandButton Command2 
+      Begin VB.CommandButton ReserveButton 
          BackColor       =   &H00C0FFFF&
          Caption         =   "RESERVE"
          Height          =   615
@@ -231,21 +49,30 @@ Begin VB.Form FormMenu
          Top             =   6960
          Width           =   975
       End
-      Begin VB.TextBox Text5 
+      Begin VB.TextBox OrderTotalText 
+         BeginProperty Font 
+            Name            =   "Britannic Bold"
+            Size            =   20.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   1215
          Left            =   360
          TabIndex        =   25
          Top             =   5040
          Width           =   3375
       End
-      Begin MSDataGridLib.DataGrid DataGrid1 
+      Begin MSDataGridLib.DataGrid CheckoutDataGrid 
          Bindings        =   "FormMenu.frx":0000
          Height          =   3495
-         Left            =   360
+         Left            =   240
          TabIndex        =   23
-         Top             =   480
-         Width           =   3495
-         _ExtentX        =   6165
+         Top             =   240
+         Width           =   3735
+         _ExtentX        =   6588
          _ExtentY        =   6165
          _Version        =   393216
          HeadLines       =   1
@@ -303,7 +130,7 @@ Begin VB.Form FormMenu
             EndProperty
          EndProperty
       End
-      Begin MSAdodcLib.Adodc Adodc1 
+      Begin MSAdodcLib.Adodc CheckoutAdodc 
          Height          =   375
          Left            =   360
          Top             =   720
@@ -419,7 +246,9 @@ Begin VB.Form FormMenu
       End
       Begin VB.ComboBox FoodSelector 
          Height          =   315
+         ItemData        =   "FormMenu.frx":001C
          Left            =   240
+         List            =   "FormMenu.frx":001E
          TabIndex        =   14
          Text            =   "Select Food"
          Top             =   600
@@ -443,7 +272,7 @@ Begin VB.Form FormMenu
       End
       Begin VB.Label Label8 
          BackStyle       =   0  'Transparent
-         Caption         =   "Lots"
+         Caption         =   "Quantity"
          Height          =   495
          Left            =   240
          TabIndex        =   16
@@ -467,15 +296,17 @@ Begin VB.Form FormMenu
       TabIndex        =   8
       Top             =   1440
       Width           =   6015
-      Begin VB.ComboBox Combo1 
+      Begin VB.ComboBox TableNumberSelector 
          Height          =   315
+         ItemData        =   "FormMenu.frx":0020
          Left            =   2280
+         List            =   "FormMenu.frx":0042
          TabIndex        =   12
          Text            =   "Table Number"
          Top             =   1080
          Width           =   2295
       End
-      Begin VB.TextBox Text1 
+      Begin VB.TextBox CustomerNameText 
          Height          =   495
          Left            =   2280
          TabIndex        =   11
@@ -570,10 +401,192 @@ Begin VB.Form FormMenu
          Width           =   1935
       End
    End
-   Begin MSAdodcLib.Adodc FoodAdodc 
+   Begin VB.Frame FrameBeverage 
+      BackColor       =   &H00C0C0FF&
+      Caption         =   "Beverage Menu"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   4815
+      Left            =   360
+      TabIndex        =   29
+      Top             =   3840
+      Width           =   9615
+      Begin VB.ComboBox BeverageSelector 
+         Height          =   315
+         Left            =   240
+         TabIndex        =   34
+         Text            =   "Select Beverage"
+         Top             =   600
+         Width           =   4095
+      End
+      Begin VB.TextBox BeveragePriceText 
+         Height          =   375
+         Left            =   1920
+         TabIndex        =   33
+         Top             =   1200
+         Width           =   2415
+      End
+      Begin VB.TextBox BeverageQuantityText 
+         Height          =   375
+         Left            =   1920
+         TabIndex        =   32
+         Top             =   1800
+         Width           =   2415
+      End
+      Begin VB.CommandButton BeverageAddButton 
+         BackColor       =   &H00C0E0FF&
+         Caption         =   "ADD"
+         Height          =   615
+         Left            =   240
+         Style           =   1  'Graphical
+         TabIndex        =   31
+         Top             =   2760
+         Width           =   1695
+      End
+      Begin VB.TextBox BeverageTotalPriceText 
+         Height          =   495
+         Left            =   6360
+         TabIndex        =   30
+         Top             =   4080
+         Width           =   2895
+      End
+      Begin VB.Label Label13 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Price"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   37
+         Top             =   1200
+         Width           =   1815
+      End
+      Begin VB.Label Label12 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Quantity"
+         Height          =   495
+         Left            =   240
+         TabIndex        =   36
+         Top             =   1800
+         Width           =   2175
+      End
+      Begin VB.Image BeverageImage 
+         Height          =   3600
+         Left            =   4680
+         Stretch         =   -1  'True
+         Top             =   600
+         Width           =   3600
+      End
+      Begin VB.Label Label11 
+         BackStyle       =   0  'Transparent
+         Caption         =   "TOTAL PRICE (Rs.)"
+         Height          =   375
+         Left            =   4680
+         TabIndex        =   35
+         Top             =   4200
+         Width           =   1935
+      End
+   End
+   Begin VB.Frame FrameDessert 
+      BackColor       =   &H00FFFFC0&
+      Caption         =   "Dessert Menu"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   4815
+      Left            =   360
+      TabIndex        =   38
+      Top             =   3840
+      Width           =   9615
+      Begin VB.TextBox DessertTotalPriceText 
+         Height          =   495
+         Left            =   6360
+         TabIndex        =   43
+         Top             =   4080
+         Width           =   2895
+      End
+      Begin VB.CommandButton DessertAddButton 
+         BackColor       =   &H00C0E0FF&
+         Caption         =   "ADD"
+         Height          =   615
+         Left            =   240
+         Style           =   1  'Graphical
+         TabIndex        =   42
+         Top             =   2760
+         Width           =   1695
+      End
+      Begin VB.TextBox DessertQuantityText 
+         Height          =   375
+         Left            =   1920
+         TabIndex        =   41
+         Top             =   1800
+         Width           =   2415
+      End
+      Begin VB.TextBox DessertPriceText 
+         Height          =   375
+         Left            =   1920
+         TabIndex        =   40
+         Top             =   1200
+         Width           =   2415
+      End
+      Begin VB.ComboBox DessertSelector 
+         Height          =   315
+         Left            =   240
+         TabIndex        =   39
+         Text            =   "Select Dessert"
+         Top             =   600
+         Width           =   4095
+      End
+      Begin VB.Label Label19 
+         BackStyle       =   0  'Transparent
+         Caption         =   "TOTAL PRICE (Rs.)"
+         Height          =   375
+         Left            =   4680
+         TabIndex        =   46
+         Top             =   4200
+         Width           =   1935
+      End
+      Begin VB.Image DessertImage 
+         Height          =   3600
+         Left            =   4680
+         Stretch         =   -1  'True
+         Top             =   600
+         Width           =   3600
+      End
+      Begin VB.Label Label18 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Quantity"
+         Height          =   495
+         Left            =   240
+         TabIndex        =   45
+         Top             =   1800
+         Width           =   2175
+      End
+      Begin VB.Label Label17 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Price"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   44
+         Top             =   1200
+         Width           =   1815
+      End
+   End
+   Begin MSAdodcLib.Adodc DessertAdodc 
       Height          =   375
       Left            =   720
-      Top             =   4080
+      Top             =   5400
       Width           =   1335
       _ExtentX        =   2355
       _ExtentY        =   661
@@ -662,10 +675,10 @@ Begin VB.Form FormMenu
       EndProperty
       _Version        =   393216
    End
-   Begin MSAdodcLib.Adodc DessertAdodc 
+   Begin MSAdodcLib.Adodc FoodAdodc 
       Height          =   375
       Left            =   720
-      Top             =   5400
+      Top             =   4080
       Width           =   1335
       _ExtentX        =   2355
       _ExtentY        =   661
@@ -733,6 +746,33 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub BeverageAddButton_Click()
+If CustomerNameText.Text = "" Or TableNumberSelector.Text = "Table Number" Or BeverageSelector.Text = "" Or BeveragePriceText.Text = "" Or BeverageQuantityText.Text = "" Then
+MsgBox " PLEASE COMPLETE YOUR ORDER ", vbInformation, "WARNING"
+Else
+
+With CheckoutAdodc.Recordset
+.AddNew
+CheckoutAdodc.Recordset.Fields("TABLE_NUMBER") = TableNumberSelector.Text
+CheckoutAdodc.Recordset.Fields("CUSTOMER_NAME") = CustomerNameText.Text
+CheckoutAdodc.Recordset.Fields("ORDER") = BeverageSelector.Text
+CheckoutAdodc.Recordset.Fields("PRICE") = BeveragePriceText.Text
+CheckoutAdodc.Recordset.Fields("QUANTITY") = BeverageQuantityText.Text
+CheckoutAdodc.Recordset.Fields("TOTAL") = BeverageTotalPriceText.Text
+OrderTotalText.Text = Val(OrderTotalText.Text) + Val(BeverageTotalPriceText.Text)
+CheckoutAdodc.Recordset.Update
+CheckoutAdodc.RecordSource = "Select * From CHECKOUTTABLE"
+MsgBox " Data Already Saved "
+
+BeverageQuantityText.Text = ""
+BeveragePriceText.Text = ""
+BeverageTotalPriceText.Text = ""
+BeverageSelector.Text = "Select Beverage"
+BeverageImage.Picture = LoadPicture("")
+End With
+End If
+End Sub
+
 Private Sub BeverageQuantityText_Change()
 BeverageTotalPriceText.Text = Val(BeverageQuantityText.Text) * Val(BeveragePriceText.Text)
 End Sub
@@ -748,6 +788,34 @@ BeverageAdodc.Recordset.Filter = " BEVERAGE = '" & BeverageSelector & "'"
 BeveragePriceText.Text = BeverageAdodc.Recordset!PRICE
 stb = BeverageAdodc.Recordset!Picture
 BeverageImage.Picture = LoadPicture(stb)
+End Sub
+
+
+Private Sub DessertAddButton_Click()
+If CustomerNameText.Text = "" Or TableNumberSelector.Text = "Table Number" Or DessertSelector.Text = "" Or DessertPriceText.Text = "" Or DessertQuantityText.Text = "" Then
+MsgBox " PLEASE COMPLETE YOUR ORDER ", vbInformation, "WARNING"
+Else
+
+With CheckoutAdodc.Recordset
+.AddNew
+CheckoutAdodc.Recordset.Fields("TABLE_NUMBER") = TableNumberSelector.Text
+CheckoutAdodc.Recordset.Fields("CUSTOMER_NAME") = CustomerNameText.Text
+CheckoutAdodc.Recordset.Fields("ORDER") = DessertSelector.Text
+CheckoutAdodc.Recordset.Fields("PRICE") = DessertPriceText.Text
+CheckoutAdodc.Recordset.Fields("QUANTITY") = DessertQuantityText.Text
+CheckoutAdodc.Recordset.Fields("TOTAL") = DessertTotalPriceText.Text
+OrderTotalText.Text = Val(OrderTotalText.Text) + Val(DessertTotalPriceText.Text)
+CheckoutAdodc.Recordset.Update
+CheckoutAdodc.RecordSource = "Select * From CHECKOUTTABLE"
+MsgBox " Data Already Saved "
+
+DessertQuantityText.Text = ""
+DessertPriceText.Text = ""
+DessertTotalPriceText.Text = ""
+DessertSelector.Text = "Select Dessert"
+DessertImage.Picture = LoadPicture("")
+End With
+End If
 End Sub
 
 Private Sub DessertQuantityText_Change()
@@ -767,6 +835,33 @@ stb = DessertAdodc.Recordset!Picture
 DessertImage.Picture = LoadPicture(stb)
 End Sub
 
+Private Sub FoodAddButton_Click()
+If CustomerNameText.Text = "" Or TableNumberSelector.Text = "Table Number" Or FoodSelector.Text = "" Or FoodPriceText.Text = "" Or FoodQuantityText.Text = "" Then
+MsgBox " PLEASE COMPLETE YOUR ORDER ", vbInformation, "WARNING"
+Else
+
+With CheckoutAdodc.Recordset
+.AddNew
+CheckoutAdodc.Recordset.Fields("TABLE_NUMBER") = TableNumberSelector.Text
+CheckoutAdodc.Recordset.Fields("CUSTOMER_NAME") = CustomerNameText.Text
+CheckoutAdodc.Recordset.Fields("ORDER") = FoodSelector.Text
+CheckoutAdodc.Recordset.Fields("PRICE") = FoodPriceText.Text
+CheckoutAdodc.Recordset.Fields("QUANTITY") = FoodQuantityText.Text
+CheckoutAdodc.Recordset.Fields("TOTAL") = FoodTotalPriceText.Text
+OrderTotalText.Text = Val(OrderTotalText.Text) + Val(FoodTotalPriceText.Text)
+CheckoutAdodc.Recordset.Update
+CheckoutAdodc.RecordSource = "Select * From CHECKOUTTABLE"
+MsgBox " Data Already Saved "
+
+FoodQuantityText.Text = ""
+FoodPriceText.Text = ""
+FoodTotalPriceText.Text = ""
+FoodSelector.Text = "Select Food"
+FoodImage.Picture = LoadPicture("")
+End With
+End If
+End Sub
+
 Private Sub FoodQuantityText_Change()
 FoodTotalPriceText.Text = Val(FoodQuantityText.Text) * Val(FoodPriceText.Text)
 End Sub
@@ -782,6 +877,16 @@ FoodAdodc.Recordset.Filter = " FOOD = '" & FoodSelector & "'"
 FoodPriceText.Text = FoodAdodc.Recordset!PRICE
 stb = FoodAdodc.Recordset!Picture
 FoodImage.Picture = LoadPicture(stb)
+End Sub
+
+Private Sub Form_Load()
+CheckoutDataGrid.Columns(0).Width = 500
+CheckoutDataGrid.Columns(1).Width = 1400
+CheckoutDataGrid.Columns(2).Width = 1500
+CheckoutDataGrid.Columns(3).Width = 2000
+CheckoutDataGrid.Columns(4).Width = 1000
+CheckoutDataGrid.Columns(5).Width = 1000
+CheckoutDataGrid.Columns(6).Width = 1000
 End Sub
 
 Private Sub Form_Activate()
@@ -816,11 +921,26 @@ DessertAdodc.ConnectionString = Connection.ConnectionString
 DessertAdodc.RecordSource = "Select * From DESSERTTABLE"
 DessertAdodc.Refresh
 DessertSelector.Clear
-DessertSelector = "Select Food"
+DessertSelector = "Select Dessert"
 With DessertAdodc.Recordset
 Do While Not .EOF
 DessertSelector.AddItem !DESSERT
 DessertAdodc.Recordset.MoveNext
 Loop
 End With
+End Sub
+
+Private Sub ReserveButton_Click()
+If CustomerNameText.Text = "" Or TableNumberSelector.Text = "Table Number" Or OrderTotalText.Text = "" Then
+MsgBox " PLEASE COMPLETE YOUR ORDER ", vbInformation, "WARNING"
+Else
+MsgBox " Thanks, Your order is in process, Please proceed the payment at checkout ^_^ "
+CustomerNameText.Text = ""
+TableNumberSelector.Text = "Table Number"
+OrderTotalText.Text = ""
+
+FoodImage.Picture = LoadPicture()
+BeverageImage.Picture = LoadPicture()
+DessertImage.Picture = LoadPicture()
+End If
 End Sub
