@@ -791,6 +791,16 @@ BeverageImage.Picture = LoadPicture(stb)
 End Sub
 
 
+Private Sub Command3_Click()
+FormHome.Show
+FormMenu.Hide
+End Sub
+
+Private Sub Command4_Click()
+FormHelp.Show
+FormMenu.Hide
+End Sub
+
 Private Sub DessertAddButton_Click()
 If CustomerNameText.Text = "" Or TableNumberSelector.Text = "Table Number" Or DessertSelector.Text = "" Or DessertPriceText.Text = "" Or DessertQuantityText.Text = "" Then
 MsgBox " PLEASE COMPLETE YOUR ORDER ", vbInformation, "WARNING"
@@ -894,7 +904,7 @@ Call Connect_DB
 FoodAdodc.ConnectionString = Connection.ConnectionString
 FoodAdodc.RecordSource = "Select * From FOODTABLE"
 FoodAdodc.Refresh
-FoodSelector.Clear
+FoodSelector.clear
 FoodSelector = "Select Food"
 With FoodAdodc.Recordset
 Do While Not .EOF
@@ -907,7 +917,7 @@ Call Connect_DB
 BeverageAdodc.ConnectionString = Connection.ConnectionString
 BeverageAdodc.RecordSource = "Select * From BEVERAGETABLE"
 BeverageAdodc.Refresh
-BeverageSelector.Clear
+BeverageSelector.clear
 BeverageSelector = "Select Beverage"
 With BeverageAdodc.Recordset
 Do While Not .EOF
@@ -920,7 +930,7 @@ Call Connect_DB
 DessertAdodc.ConnectionString = Connection.ConnectionString
 DessertAdodc.RecordSource = "Select * From DESSERTTABLE"
 DessertAdodc.Refresh
-DessertSelector.Clear
+DessertSelector.clear
 DessertSelector = "Select Dessert"
 With DessertAdodc.Recordset
 Do While Not .EOF

@@ -9,9 +9,9 @@ Begin VB.Form FormHelp
    ScaleHeight     =   6435
    ScaleWidth      =   9765
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton Command1 
+   Begin VB.CommandButton Command2 
       BackColor       =   &H008080FF&
-      Caption         =   "BACK"
+      Caption         =   "Back To Cafe Menu"
       BeginProperty Font 
          Name            =   "Britannic Bold"
          Size            =   12
@@ -22,11 +22,30 @@ Begin VB.Form FormHelp
          Strikethrough   =   0   'False
       EndProperty
       Height          =   615
-      Left            =   7800
+      Left            =   240
+      Style           =   1  'Graphical
+      TabIndex        =   4
+      Top             =   5280
+      Width           =   2295
+   End
+   Begin VB.CommandButton Command1 
+      BackColor       =   &H008080FF&
+      Caption         =   "Back To Home"
+      BeginProperty Font 
+         Name            =   "Britannic Bold"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   7200
       Style           =   1  'Graphical
       TabIndex        =   3
       Top             =   5280
-      Width           =   1695
+      Width           =   2295
    End
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0FFFF&
@@ -83,5 +102,10 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Command1_Click()
 FormHome.Show
+FormHelp.Hide
+End Sub
+
+Private Sub Command2_Click()
+FormMenu.Show
 FormHelp.Hide
 End Sub

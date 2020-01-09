@@ -107,3 +107,8 @@ Private Sub Command1_Click()
 FormHome.Show
 FormStart.Hide
 End Sub
+
+Private Sub Command2_Click()
+FormLogin.Show
+FormStart.Hide
+End Sub

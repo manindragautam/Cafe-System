@@ -618,6 +618,12 @@ CheckoutAdodc.RecordSource = "CHECKOUTTABLE"
 CheckoutAdodc.Refresh
 Set CheckoutDataGrid.DataSource = CheckoutAdodc
 
+'Set AA = New ADODB.Connection
+'AA.CursorLocation = adUseClient
+'AA.Provider = "Microsoft.Jet.OLEDB.4.0"
+'AA.Open App.Path & "\DBCAFE.mdb"
+'Call AABB
+
 Call Connect_DB
 Adodc2.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\DBCAFE.mdb"
 Adodc2.RecordSource = "ORDERTABLE"
@@ -700,21 +706,21 @@ ReceiptScreen.Print Tab(5); "Table No.     :     "; CheckoutAdodc.Recordset!TABL
 ReceiptScreen.Print Tab(5); "Customer Name :     "; CheckoutAdodc.Recordset!CUSTOMER_NAME
 MGrs = String$(33, "-")
 ReceiptScreen.Print Tab(5); MGrs
-'Adodc2.RecordSource = "SELECT * FROM ORDERTABLE WHERE MENU_ITEM = '" & Adodc2.Recordset!MENU_ITEM & "', Connection"
-'Adodc2.Recordset.MoveFirst
-'No = 0
-'Do While Not Adodc2.Recordset.EOF
-'No = No + 1
-'Adodc2.RecordSource = "select * from ORDERTABLE WHERE MENU_ITEM = '" & Adodc2.Recordset!MENU_ITEM & "', Connection"
-'Quantity = Adodc2.Recordset!Quantity
-'Price = Adodc2.Recordset!Price
-'TOTAL = Quantity * Price
-'ReceiptScreen.Print Tab(5); No; Space(2); Adodc2.Recordset!MENU_ITEM
-'ReceiptScreen.Print Tab(10); DoRight(Quantity, "##"); Space(1); "X";
-'ReceiptScreen.Print Tab(15); Format(Price, "###,##,0.00");
-'ReceiptScreen.Print Tab(25); DoRight(TOTAL, "###,##,0.00");
-'Adodc2.Recordset.MoveNext
-'Loop
+Adodc2.RecordSource = "SELECT * FROM ORDERTABLE WHERE MENU_ITEM = '" & Adodc2.Recordset!MENU_ITEM & "', Connection"
+Adodc2.Recordset.MoveFirst
+No = 0
+Do While Not Adodc2.Recordset.EOF
+No = No + 1
+Adodc2.RecordSource = "select * from ORDERTABLE WHERE MENU_ITEM = '" & Adodc2.Recordset!MENU_ITEM & "', Connection"
+Quantity = Adodc2.Recordset!Quantity
+Price = Adodc2.Recordset!Price
+TOTAL = Quantity * Price
+ReceiptScreen.Print Tab(5); No; Space(2); Adodc2.Recordset!MENU_ITEM
+ReceiptScreen.Print Tab(10); DoRight(Quantity, "##"); Space(1); "X";
+ReceiptScreen.Print Tab(15); Format(Price, "###,##,0.00");
+ReceiptScreen.Print Tab(25); DoRight(TOTAL, "###,##,0.00");
+Adodc2.Recordset.MoveNext
+Loop
 
 ReceiptScreen.Print Tab(5); MGrs
 ReceiptScreen.Print Tab(5); "Total         :";
