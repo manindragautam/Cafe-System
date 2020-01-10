@@ -2,45 +2,93 @@ VERSION 5.00
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
-Begin VB.Form FormDataMenu 
-   BackColor       =   &H00C0E0FF&
-   ClientHeight    =   9600
+Begin VB.Form FormCafeMenu 
+   Caption         =   "Form1"
+   ClientHeight    =   9285
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   10950
+   ClientWidth     =   10875
    LinkTopic       =   "Form1"
-   ScaleHeight     =   9600
-   ScaleWidth      =   10950
+   ScaleHeight     =   9285
+   ScaleWidth      =   10875
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton UploadPictureButton 
-      Caption         =   "UPLOAD PICTURE"
-      Height          =   495
-      Left            =   7560
-      TabIndex        =   27
-      Top             =   3360
-      Width           =   1455
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00C0FFFF&
+      Height          =   2415
+      Left            =   480
+      TabIndex        =   7
+      Top             =   960
+      Width           =   6495
+      Begin VB.TextBox TextName 
+         Height          =   375
+         Left            =   2160
+         TabIndex        =   12
+         Top             =   360
+         Width           =   2175
+      End
+      Begin VB.TextBox TextPrice 
+         Height          =   375
+         Left            =   2160
+         TabIndex        =   11
+         Top             =   960
+         Width           =   2175
+      End
+      Begin VB.CommandButton DataNewButton 
+         Caption         =   "NEW"
+         Height          =   495
+         Left            =   360
+         TabIndex        =   10
+         Top             =   1560
+         Width           =   1455
+      End
+      Begin VB.CommandButton FormExitButton 
+         Caption         =   "EXIT"
+         Height          =   495
+         Left            =   3480
+         TabIndex        =   9
+         Top             =   1560
+         Width           =   1455
+      End
+      Begin VB.CommandButton CheckoutButton 
+         Caption         =   "CHECKOUT"
+         Height          =   495
+         Left            =   1920
+         TabIndex        =   8
+         Top             =   1560
+         Width           =   1455
+      End
+      Begin VB.Label Label1 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Name      :"
+         Height          =   375
+         Left            =   480
+         TabIndex        =   14
+         Top             =   360
+         Width           =   1095
+      End
+      Begin VB.Label Label2 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Price       :"
+         Height          =   255
+         Left            =   480
+         TabIndex        =   13
+         Top             =   960
+         Width           =   1095
+      End
    End
    Begin VB.Frame FrameFood 
       BackColor       =   &H00C0FFC0&
       Caption         =   "FOOD"
       Height          =   5175
-      Left            =   360
-      TabIndex        =   8
+      Left            =   480
+      TabIndex        =   1
       Top             =   4200
       Width           =   9975
-      Begin VB.CommandButton FoodDeleteButton 
-         Caption         =   "DELETE"
+      Begin VB.CommandButton Command5 
+         Caption         =   "NEXT"
          Height          =   615
-         Left            =   5400
-         TabIndex        =   13
-         Top             =   4080
-         Width           =   1335
-      End
-      Begin VB.CommandButton FoodEditButton 
-         Caption         =   "EDIT"
-         Height          =   615
-         Left            =   3960
-         TabIndex        =   12
+         Left            =   8400
+         TabIndex        =   5
          Top             =   4080
          Width           =   1335
       End
@@ -48,22 +96,30 @@ Begin VB.Form FormDataMenu
          Caption         =   "SAVE"
          Height          =   615
          Left            =   2520
-         TabIndex        =   11
+         TabIndex        =   4
          Top             =   4080
          Width           =   1335
       End
-      Begin VB.CommandButton Command5 
-         Caption         =   "NEXT"
+      Begin VB.CommandButton FoodEditButton 
+         Caption         =   "EDIT"
          Height          =   615
-         Left            =   8400
-         TabIndex        =   10
+         Left            =   3960
+         TabIndex        =   3
+         Top             =   4080
+         Width           =   1335
+      End
+      Begin VB.CommandButton FoodDeleteButton 
+         Caption         =   "DELETE"
+         Height          =   615
+         Left            =   5400
+         TabIndex        =   2
          Top             =   4080
          Width           =   1335
       End
       Begin MSDataGridLib.DataGrid FoodDataGrid 
          Height          =   3135
          Left            =   240
-         TabIndex        =   9
+         TabIndex        =   6
          Top             =   360
          Width           =   9495
          _ExtentX        =   16748
@@ -125,99 +181,27 @@ Begin VB.Form FormDataMenu
          EndProperty
       End
    End
-   Begin VB.Frame Frame1 
-      BackColor       =   &H00C0FFFF&
-      Height          =   2415
-      Left            =   360
+   Begin VB.CommandButton UploadPictureButton 
+      Caption         =   "UPLOAD PICTURE"
+      Height          =   495
+      Left            =   7680
       TabIndex        =   0
-      Top             =   840
-      Width           =   6495
-      Begin VB.CommandButton Command3 
-         Caption         =   "CHECKOUT MENU"
-         Height          =   495
-         Left            =   1920
-         TabIndex        =   7
-         Top             =   1560
-         Width           =   1455
-      End
-      Begin VB.CommandButton FormExitButton 
-         Caption         =   "EXIT"
-         Height          =   495
-         Left            =   3480
-         TabIndex        =   6
-         Top             =   1560
-         Width           =   1455
-      End
-      Begin VB.CommandButton DataNewButton 
-         Caption         =   "NEW"
-         Height          =   495
-         Left            =   360
-         TabIndex        =   5
-         Top             =   1560
-         Width           =   1455
-      End
-      Begin VB.TextBox TextPrice 
-         Height          =   375
-         Left            =   2160
-         TabIndex        =   4
-         Top             =   960
-         Width           =   2175
-      End
-      Begin VB.TextBox TextName 
-         Height          =   375
-         Left            =   2160
-         TabIndex        =   3
-         Top             =   360
-         Width           =   2175
-      End
-      Begin VB.Label Label2 
-         BackStyle       =   0  'Transparent
-         Caption         =   "Price       :"
-         Height          =   255
-         Left            =   480
-         TabIndex        =   2
-         Top             =   960
-         Width           =   1095
-      End
-      Begin VB.Label Label1 
-         BackStyle       =   0  'Transparent
-         Caption         =   "Name      :"
-         Height          =   375
-         Left            =   480
-         TabIndex        =   1
-         Top             =   360
-         Width           =   1095
-      End
+      Top             =   3480
+      Width           =   1455
    End
    Begin VB.Frame FrameBeverage 
       BackColor       =   &H00FFFFC0&
       Caption         =   "BEVERAGE"
       Height          =   5175
-      Left            =   360
-      TabIndex        =   14
+      Left            =   480
+      TabIndex        =   15
       Top             =   4200
       Width           =   9975
-      Begin VB.CommandButton Command12 
-         Caption         =   "NEXT"
+      Begin VB.CommandButton Command11 
+         Caption         =   "BACK"
          Height          =   615
-         Left            =   8400
+         Left            =   240
          TabIndex        =   20
-         Top             =   4080
-         Width           =   1335
-      End
-      Begin VB.CommandButton BeverageDeleteButton 
-         Caption         =   "DELETE"
-         Height          =   615
-         Left            =   5400
-         TabIndex        =   18
-         Top             =   4080
-         Width           =   1335
-      End
-      Begin VB.CommandButton BeverageEditButton 
-         Caption         =   "EDIT"
-         Height          =   615
-         Left            =   3960
-         TabIndex        =   17
          Top             =   4080
          Width           =   1335
       End
@@ -225,22 +209,38 @@ Begin VB.Form FormDataMenu
          Caption         =   "SAVE"
          Height          =   615
          Left            =   2520
-         TabIndex        =   16
+         TabIndex        =   19
          Top             =   4080
          Width           =   1335
       End
-      Begin VB.CommandButton Command11 
-         Caption         =   "BACK"
+      Begin VB.CommandButton BeverageEditButton 
+         Caption         =   "EDIT"
          Height          =   615
-         Left            =   240
-         TabIndex        =   15
+         Left            =   3960
+         TabIndex        =   18
+         Top             =   4080
+         Width           =   1335
+      End
+      Begin VB.CommandButton BeverageDeleteButton 
+         Caption         =   "DELETE"
+         Height          =   615
+         Left            =   5400
+         TabIndex        =   17
+         Top             =   4080
+         Width           =   1335
+      End
+      Begin VB.CommandButton Command12 
+         Caption         =   "NEXT"
+         Height          =   615
+         Left            =   8400
+         TabIndex        =   16
          Top             =   4080
          Width           =   1335
       End
       Begin MSDataGridLib.DataGrid BeverageDataGrid 
          Height          =   3135
          Left            =   240
-         TabIndex        =   19
+         TabIndex        =   21
          Top             =   360
          Width           =   9495
          _ExtentX        =   16748
@@ -306,14 +306,22 @@ Begin VB.Form FormDataMenu
       BackColor       =   &H00C0C0FF&
       Caption         =   "DESSERT"
       Height          =   5175
-      Left            =   360
-      TabIndex        =   21
+      Left            =   480
+      TabIndex        =   22
       Top             =   4200
       Width           =   9975
-      Begin VB.CommandButton DessertSaveButton 
-         Caption         =   "SAVE"
+      Begin VB.CommandButton Command13 
+         Caption         =   "BACK"
          Height          =   615
-         Left            =   2520
+         Left            =   240
+         TabIndex        =   26
+         Top             =   4080
+         Width           =   1335
+      End
+      Begin VB.CommandButton DessertDeleteButton 
+         Caption         =   "DELETE"
+         Height          =   615
+         Left            =   5400
          TabIndex        =   25
          Top             =   4080
          Width           =   1335
@@ -326,26 +334,18 @@ Begin VB.Form FormDataMenu
          Top             =   4080
          Width           =   1335
       End
-      Begin VB.CommandButton DessertDeleteButton 
-         Caption         =   "DELETE"
+      Begin VB.CommandButton DessertSaveButton 
+         Caption         =   "SAVE"
          Height          =   615
-         Left            =   5400
+         Left            =   2520
          TabIndex        =   23
-         Top             =   4080
-         Width           =   1335
-      End
-      Begin VB.CommandButton Command13 
-         Caption         =   "BACK"
-         Height          =   615
-         Left            =   240
-         TabIndex        =   22
          Top             =   4080
          Width           =   1335
       End
       Begin MSDataGridLib.DataGrid DessertDataGrid 
          Height          =   3495
          Left            =   240
-         TabIndex        =   26
+         TabIndex        =   27
          Top             =   360
          Width           =   9495
          _ExtentX        =   16748
@@ -407,102 +407,10 @@ Begin VB.Form FormDataMenu
          EndProperty
       End
    End
-   Begin MSAdodcLib.Adodc DessertAdodc 
-      Height          =   495
-      Left            =   840
-      Top             =   6120
-      Width           =   1575
-      _ExtentX        =   2778
-      _ExtentY        =   873
-      ConnectMode     =   0
-      CursorLocation  =   3
-      IsolationLevel  =   -1
-      ConnectionTimeout=   15
-      CommandTimeout  =   30
-      CursorType      =   3
-      LockType        =   3
-      CommandType     =   8
-      CursorOptions   =   0
-      CacheSize       =   50
-      MaxRecords      =   0
-      BOFAction       =   0
-      EOFAction       =   0
-      ConnectStringType=   1
-      Appearance      =   1
-      BackColor       =   -2147483643
-      ForeColor       =   -2147483640
-      Orientation     =   0
-      Enabled         =   -1
-      Connect         =   ""
-      OLEDBString     =   ""
-      OLEDBFile       =   ""
-      DataSourceName  =   ""
-      OtherAttributes =   ""
-      UserName        =   ""
-      Password        =   ""
-      RecordSource    =   ""
-      Caption         =   "Adodc3"
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      _Version        =   393216
-   End
-   Begin MSAdodcLib.Adodc BeverageAdodc 
-      Height          =   495
-      Left            =   840
-      Top             =   5400
-      Width           =   1455
-      _ExtentX        =   2566
-      _ExtentY        =   873
-      ConnectMode     =   0
-      CursorLocation  =   3
-      IsolationLevel  =   -1
-      ConnectionTimeout=   15
-      CommandTimeout  =   30
-      CursorType      =   3
-      LockType        =   3
-      CommandType     =   8
-      CursorOptions   =   0
-      CacheSize       =   50
-      MaxRecords      =   0
-      BOFAction       =   0
-      EOFAction       =   0
-      ConnectStringType=   1
-      Appearance      =   1
-      BackColor       =   -2147483643
-      ForeColor       =   -2147483640
-      Orientation     =   0
-      Enabled         =   -1
-      Connect         =   ""
-      OLEDBString     =   ""
-      OLEDBFile       =   ""
-      DataSourceName  =   ""
-      OtherAttributes =   ""
-      UserName        =   ""
-      Password        =   ""
-      RecordSource    =   ""
-      Caption         =   "Adodc2"
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      _Version        =   393216
-   End
    Begin MSAdodcLib.Adodc FoodAdodc 
       Height          =   495
-      Left            =   840
-      Top             =   4440
+      Left            =   960
+      Top             =   4560
       Width           =   1575
       _ExtentX        =   2778
       _ExtentY        =   873
@@ -545,12 +453,112 @@ Begin VB.Form FormDataMenu
       EndProperty
       _Version        =   393216
    End
+   Begin MSAdodcLib.Adodc BeverageAdodc 
+      Height          =   495
+      Left            =   960
+      Top             =   5520
+      Width           =   1455
+      _ExtentX        =   2566
+      _ExtentY        =   873
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Adodc2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DessertAdodc 
+      Height          =   495
+      Left            =   960
+      Top             =   6240
+      Width           =   1575
+      _ExtentX        =   2778
+      _ExtentY        =   873
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Adodc3"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
    Begin MSComDlg.CommonDialog Upload 
-      Left            =   12000
-      Top             =   3360
+      Left            =   11640
+      Top             =   1560
       _ExtentX        =   847
       _ExtentY        =   847
       _Version        =   393216
+   End
+   Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
+      Height          =   3015
+      Left            =   7200
+      Stretch         =   -1  'True
+      Top             =   360
+      Width           =   3135
    End
    Begin VB.Label Label3 
       Alignment       =   2  'Center
@@ -566,21 +574,13 @@ Begin VB.Form FormDataMenu
          Strikethrough   =   0   'False
       EndProperty
       Height          =   615
-      Left            =   360
+      Left            =   480
       TabIndex        =   28
-      Top             =   240
+      Top             =   360
       Width           =   6495
    End
-   Begin VB.Image Image1 
-      BorderStyle     =   1  'Fixed Single
-      Height          =   3000
-      Left            =   7320
-      Stretch         =   -1  'True
-      Top             =   240
-      Width           =   3000
-   End
 End
-Attribute VB_Name = "FormDataMenu"
+Attribute VB_Name = "FormCafeMenu"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -630,9 +630,9 @@ MsgBox "New Menu Saved Successfully", vbInformation, "New Input Menu"
 End With
 End Sub
 
-Private Sub Command3_Click()
+Private Sub CheckoutButton_Click()
 FormCashier.Show
-FormDataMenu.Hide
+FormCafeMenu.Hide
 End Sub
 
 Private Sub DataNewButton_Click()
@@ -779,3 +779,4 @@ str = Upload.FileName
 Image1.Picture = LoadPicture(str)
 Vimg = True
 End Sub
+

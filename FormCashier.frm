@@ -14,13 +14,12 @@ Begin VB.Form FormCashier
    StartUpPosition =   3  'Windows Default
    Begin VB.Frame Frame3 
       BackColor       =   &H00C0FFFF&
-      Caption         =   "Frame3"
       Height          =   1095
       Left            =   8040
       TabIndex        =   19
       Top             =   7920
       Width           =   6495
-      Begin VB.CommandButton Command7 
+      Begin VB.CommandButton ExitButton 
          BackColor       =   &H00C0E0FF&
          Caption         =   "EXIT"
          Height          =   495
@@ -30,9 +29,9 @@ Begin VB.Form FormCashier
          Top             =   360
          Width           =   1695
       End
-      Begin VB.CommandButton Command6 
+      Begin VB.CommandButton CafeMenuButton 
          BackColor       =   &H00C0E0FF&
-         Caption         =   "DATA MENU"
+         Caption         =   "CAFE MENU"
          Height          =   495
          Left            =   2400
          Style           =   1  'Graphical
@@ -40,9 +39,9 @@ Begin VB.Form FormCashier
          Top             =   360
          Width           =   1695
       End
-      Begin VB.CommandButton Command5 
+      Begin VB.CommandButton HomeButton 
          BackColor       =   &H00C0E0FF&
-         Caption         =   "HOME MENU"
+         Caption         =   "HOME"
          Height          =   495
          Left            =   480
          Style           =   1  'Graphical
@@ -53,13 +52,12 @@ Begin VB.Form FormCashier
    End
    Begin VB.Frame Frame2 
       BackColor       =   &H00C0FFFF&
-      Caption         =   "Frame2"
       Height          =   3015
       Left            =   8040
       TabIndex        =   18
       Top             =   4680
       Width           =   6495
-      Begin VB.CommandButton Command8 
+      Begin VB.CommandButton PrintButton 
          BackColor       =   &H00C0FFFF&
          Caption         =   "PRINT RECEIPT"
          Height          =   495
@@ -150,15 +148,14 @@ Begin VB.Form FormCashier
    End
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0E0FF&
-      Caption         =   "Frame1"
       Height          =   4335
       Left            =   240
       TabIndex        =   4
       Top             =   4680
       Width           =   7575
-      Begin VB.CommandButton Command4 
+      Begin VB.CommandButton RefreshButton 
          BackColor       =   &H00C0FFFF&
-         Caption         =   "NEW"
+         Caption         =   "REFRESH"
          Height          =   495
          Left            =   3480
          Style           =   1  'Graphical
@@ -166,9 +163,9 @@ Begin VB.Form FormCashier
          Top             =   3720
          Width           =   1575
       End
-      Begin VB.CommandButton Command3 
+      Begin VB.CommandButton CheckoutButton 
          BackColor       =   &H00C0FFFF&
-         Caption         =   "BUY"
+         Caption         =   "CHECKOUT"
          Height          =   495
          Left            =   1920
          Style           =   1  'Graphical
@@ -176,7 +173,7 @@ Begin VB.Form FormCashier
          Top             =   3720
          Width           =   1575
       End
-      Begin MSDataGridLib.DataGrid DataGrid2 
+      Begin MSDataGridLib.DataGrid CheckoutDataGrid 
          Bindings        =   "FormCashier.frx":0000
          Height          =   1575
          Left            =   360
@@ -241,7 +238,7 @@ Begin VB.Form FormCashier
             EndProperty
          EndProperty
       End
-      Begin MSAdodcLib.Adodc Adodc2 
+      Begin MSAdodcLib.Adodc CheckoutAdodc 
          Height          =   375
          Left            =   840
          Top             =   2280
@@ -287,7 +284,7 @@ Begin VB.Form FormCashier
          EndProperty
          _Version        =   393216
       End
-      Begin VB.CommandButton Command2 
+      Begin VB.CommandButton DeleteButton 
          BackColor       =   &H00C0FFFF&
          Caption         =   "DELETE"
          Height          =   495
@@ -297,7 +294,7 @@ Begin VB.Form FormCashier
          Top             =   1440
          Width           =   1575
       End
-      Begin VB.CommandButton Command1 
+      Begin VB.CommandButton AddButton 
          BackColor       =   &H00C0FFFF&
          Caption         =   "ADD"
          Height          =   495
@@ -307,28 +304,28 @@ Begin VB.Form FormCashier
          Top             =   1440
          Width           =   1575
       End
-      Begin VB.TextBox Text5 
+      Begin VB.TextBox TotalText 
          Height          =   375
          Left            =   5040
          TabIndex        =   12
          Top             =   840
          Width           =   1575
       End
-      Begin VB.TextBox Text4 
+      Begin VB.TextBox PriceText 
          Height          =   375
          Left            =   3480
          TabIndex        =   11
          Top             =   840
          Width           =   1575
       End
-      Begin VB.TextBox Text3 
+      Begin VB.TextBox QuantityText 
          Height          =   375
          Left            =   1920
          TabIndex        =   10
          Top             =   840
          Width           =   1575
       End
-      Begin VB.TextBox Text2 
+      Begin VB.TextBox OrderText 
          Height          =   375
          Left            =   360
          TabIndex        =   9
@@ -376,7 +373,7 @@ Begin VB.Form FormCashier
          Width           =   1575
       End
    End
-   Begin MSDataGridLib.DataGrid CheckoutDataGrid 
+   Begin MSDataGridLib.DataGrid TableDataGrid 
       Height          =   3135
       Left            =   240
       TabIndex        =   3
@@ -440,7 +437,7 @@ Begin VB.Form FormCashier
          EndProperty
       EndProperty
    End
-   Begin MSAdodcLib.Adodc CheckoutAdodc 
+   Begin MSAdodcLib.Adodc TableAdodc 
       Height          =   495
       Left            =   1200
       Top             =   2280
@@ -486,7 +483,7 @@ Begin VB.Form FormCashier
       EndProperty
       _Version        =   393216
    End
-   Begin VB.TextBox SearchText 
+   Begin VB.TextBox TableSearchText 
       Height          =   495
       Left            =   2760
       TabIndex        =   1
@@ -543,105 +540,103 @@ Public RSORDER As New ADODB.Recordset
 Dim Connection As New ADODB.Connection
 Dim RSSEARCH As New ADODB.Recordset
 
-Private Sub CheckoutDataGrid_Click()
-Text2.Text = CheckoutDataGrid.Columns(3)
-Text3.Text = CheckoutDataGrid.Columns(4)
-Text4.Text = CheckoutDataGrid.Columns(5)
-Text5.Text = CheckoutDataGrid.Columns(6)
+Private Sub HomeButton_Click()
+FormHome.Show
+FormCashier.Hide
 End Sub
 
-Private Sub Command1_Click()
-With Adodc2.Recordset
+Private Sub TableDataGrid_Click()
+OrderText.Text = TableDataGrid.Columns(3)
+QuantityText.Text = TableDataGrid.Columns(4)
+PriceText.Text = TableDataGrid.Columns(5)
+TotalText.Text = TableDataGrid.Columns(6)
+End Sub
+
+Private Sub AddButton_Click()
+With CheckoutAdodc.Recordset
 .AddNew
-Adodc2.Recordset.Fields("MENU_ITEM") = Text2.Text
-Adodc2.Recordset.Fields("QUANTITY") = Text3.Text
-Adodc2.Recordset.Fields("PRICE") = Text4.Text
-Adodc2.Recordset.Fields("TOTAL") = Text5.Text
-Adodc2.Recordset.Update
-Adodc2.RecordSource = "Select * FROM ORDERTABLE"
+CheckoutAdodc.Recordset.Fields("MENU_ITEM") = OrderText.Text
+CheckoutAdodc.Recordset.Fields("QUANTITY") = QuantityText.Text
+CheckoutAdodc.Recordset.Fields("PRICE") = PriceText.Text
+CheckoutAdodc.Recordset.Fields("TOTAL") = TotalText.Text
+CheckoutAdodc.Recordset.Update
+CheckoutAdodc.RecordSource = "Select * FROM ORDERTABLE"
 End With
 End Sub
 
-Private Sub Command2_Click()
-If Adodc2.Recordset.RecordCount <> 0 Then Adodc2.Recordset.Delete
+Private Sub DeleteButton_Click()
+If CheckoutAdodc.Recordset.RecordCount <> 0 Then CheckoutAdodc.Recordset.Delete
 End Sub
 
-Private Sub Command3_Click()
-Adodc2.Recordset.MoveFirst
+Private Sub CheckoutButton_Click()
+CheckoutAdodc.Recordset.MoveFirst
 amount = 0
-While Not Adodc2.Recordset.EOF
-amount = amount + Adodc2.Recordset.Fields(3)
-Adodc2.Recordset.MoveNext
+While Not CheckoutAdodc.Recordset.EOF
+amount = amount + CheckoutAdodc.Recordset.Fields(3)
+CheckoutAdodc.Recordset.MoveNext
 Wend
 TotalMoneyText.Text = amount
 TotalMoneyText.Text = Format(amount, "###,##,0.00")
 End Sub
 
-Private Sub Command4_Click()
-SearchText.Text = ""
-Text2.Text = ""
-Text3.Text = ""
-Text4.Text = ""
-Text5.Text = ""
+Private Sub RefreshButton_Click()
+TableSearchText.Text = ""
+OrderText.Text = ""
+QuantityText.Text = ""
+PriceText.Text = ""
+TotalText.Text = ""
 TotalMoneyText.Text = ""
 PaidMoneyText.Text = ""
 ReturnMoneyText.Text = ""
 
-Dim Mapus As Integer
-For Mapus = 1 To Adodc2.Recordset.RecordCount
-Adodc2.Recordset.MoveFirst
-Adodc2.Recordset.Delete
-Adodc2.Recordset.Update
-Adodc2.Recordset.MoveNext
-Next Mapus
+Dim InitNum As Integer
+For InitNum = 1 To CheckoutAdodc.Recordset.RecordCount
+CheckoutAdodc.Recordset.MoveFirst
+CheckoutAdodc.Recordset.Delete
+CheckoutAdodc.Recordset.Update
+CheckoutAdodc.Recordset.MoveNext
+Next InitNum
 End Sub
 
-Private Sub Command6_Click()
-FormDataMenu.Show
+Private Sub CafeMenuButton_Click()
+FormCafeMenu.Show
 FormCashier.Hide
 End Sub
 
-Private Sub Command7_Click()
+Private Sub ExitButton_Click()
 MsgBox "Are you sure you want to exit?", vbInformation + vbYesNo, "WARNING"
 If vbYes Then End
 End Sub
 
-Private Sub Command8_Click()
+Private Sub PrintButton_Click()
 Call PrintReceipt
-
 End Sub
 
 Private Sub Form_Load()
 Call Connect_DB
+TableAdodc.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\DBCAFE.mdb"
+TableAdodc.RecordSource = "CHECKOUTTABLE"
+TableAdodc.Refresh
+Set TableDataGrid.DataSource = TableAdodc
+
+Call Connect_DB
 CheckoutAdodc.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\DBCAFE.mdb"
-CheckoutAdodc.RecordSource = "CHECKOUTTABLE"
+CheckoutAdodc.RecordSource = "ORDERTABLE"
 CheckoutAdodc.Refresh
 Set CheckoutDataGrid.DataSource = CheckoutAdodc
 
-'Set AA = New ADODB.Connection
-'AA.CursorLocation = adUseClient
-'AA.Provider = "Microsoft.Jet.OLEDB.4.0"
-'AA.Open App.Path & "\DBCAFE.mdb"
-'Call AABB
+TableDataGrid.Columns(0).Width = 700
+TableDataGrid.Columns(1).Width = 1500
+TableDataGrid.Columns(2).Width = 1900
+TableDataGrid.Columns(3).Width = 3500
+TableDataGrid.Columns(4).Width = 1300
+TableDataGrid.Columns(5).Width = 2000
+TableDataGrid.Columns(6).Width = 2000
 
-Call Connect_DB
-Adodc2.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\DBCAFE.mdb"
-Adodc2.RecordSource = "ORDERTABLE"
-Adodc2.Refresh
-Set DataGrid2.DataSource = Adodc2
-
-CheckoutDataGrid.Columns(0).Width = 700
-CheckoutDataGrid.Columns(1).Width = 1500
-CheckoutDataGrid.Columns(2).Width = 1900
-CheckoutDataGrid.Columns(3).Width = 3500
-CheckoutDataGrid.Columns(4).Width = 1300
-CheckoutDataGrid.Columns(5).Width = 2000
-CheckoutDataGrid.Columns(6).Width = 2000
-
-DataGrid2.Columns(0).Width = 2300
-DataGrid2.Columns(1).Width = 1300
-DataGrid2.Columns(2).Width = 1300
-DataGrid2.Columns(3).Width = 1300
+CheckoutDataGrid.Columns(0).Width = 2300
+CheckoutDataGrid.Columns(1).Width = 1300
+CheckoutDataGrid.Columns(2).Width = 1300
+CheckoutDataGrid.Columns(3).Width = 1300
 End Sub
 
 Sub Open_DB()
@@ -660,21 +655,21 @@ ReturnMoneyText.Text = Format(RETURNCASH, "###,##,0.00")
 End If
 End Sub
 
-Private Sub SearchText_Change()
+Private Sub TableSearchText_Change()
 Call Open_DB
-RSSEARCH.Open "SELECT * FROM CHECKOUTTABLE WHERE TABLE_NUMBER like '%" & SearchText & "%'", Connection
+RSSEARCH.Open "SELECT * FROM CHECKOUTTABLE WHERE TABLE_NUMBER like '%" & TableSearchText & "%'", Connection
 If Not RSSEARCH.EOF Then
-CheckoutAdodc.RecordSource = "SELECT * FROM CHECKOUTTABLE WHERE TABLE_NUMBER like '%" & SearchText & "%'"
-CheckoutAdodc.Refresh
-Set CheckoutDataGrid.DataSource = CheckoutAdodc
+TableAdodc.RecordSource = "SELECT * FROM CHECKOUTTABLE WHERE TABLE_NUMBER like '%" & TableSearchText & "%'"
+TableAdodc.Refresh
+Set TableDataGrid.DataSource = TableAdodc
 
-CheckoutDataGrid.Columns(0).Width = 700
-CheckoutDataGrid.Columns(1).Width = 1500
-CheckoutDataGrid.Columns(2).Width = 1900
-CheckoutDataGrid.Columns(3).Width = 3500
-CheckoutDataGrid.Columns(4).Width = 1300
-CheckoutDataGrid.Columns(5).Width = 2000
-CheckoutDataGrid.Columns(6).Width = 2000
+TableDataGrid.Columns(0).Width = 700
+TableDataGrid.Columns(1).Width = 1500
+TableDataGrid.Columns(2).Width = 1900
+TableDataGrid.Columns(3).Width = 3500
+TableDataGrid.Columns(4).Width = 1300
+TableDataGrid.Columns(5).Width = 2000
+TableDataGrid.Columns(6).Width = 2000
 End If
 End Sub
 
@@ -701,25 +696,24 @@ ReceiptScreen.Print
 ReceiptScreen.Print
 ReceiptScreen.Print
 ReceiptScreen.Print
-CheckoutAdodc.RecordSource = "SELECT * from CHECKOUTTABLE WHERE TABLE_NUMBER = '" & CheckoutAdodc.Recordset!TABLE_NUMBER & "', Connection"
-ReceiptScreen.Print Tab(5); "Table No.     :     "; CheckoutAdodc.Recordset!TABLE_NUMBER
-ReceiptScreen.Print Tab(5); "Customer Name :     "; CheckoutAdodc.Recordset!CUSTOMER_NAME
+TableAdodc.RecordSource = "SELECT * from CHECKOUTTABLE WHERE TABLE_NUMBER = '" & TableAdodc.Recordset!TABLE_NUMBER & "', Connection"
+ReceiptScreen.Print Tab(5); "Table No.     :     "; TableAdodc.Recordset!TABLE_NUMBER
+ReceiptScreen.Print Tab(5); "Customer Name :     "; TableAdodc.Recordset!CUSTOMER_NAME
 MGrs = String$(33, "-")
 ReceiptScreen.Print Tab(5); MGrs
-Adodc2.RecordSource = "SELECT * FROM ORDERTABLE WHERE MENU_ITEM = '" & Adodc2.Recordset!MENU_ITEM & "', Connection"
-Adodc2.Recordset.MoveFirst
+CheckoutAdodc.Recordset.MoveFirst
 No = 0
-Do While Not Adodc2.Recordset.EOF
+Do While Not CheckoutAdodc.Recordset.EOF
 No = No + 1
-Adodc2.RecordSource = "select * from ORDERTABLE WHERE MENU_ITEM = '" & Adodc2.Recordset!MENU_ITEM & "', Connection"
-Quantity = Adodc2.Recordset!Quantity
-Price = Adodc2.Recordset!Price
+CheckoutAdodc.RecordSource = "select * from ORDERTABLE WHERE MENU_ITEM = '" & CheckoutAdodc.Recordset!MENU_ITEM & "', Connection"
+Quantity = CheckoutAdodc.Recordset!Quantity
+Price = CheckoutAdodc.Recordset!Price
 TOTAL = Quantity * Price
-ReceiptScreen.Print Tab(5); No; Space(2); Adodc2.Recordset!MENU_ITEM
+ReceiptScreen.Print Tab(5); No; Space(2); CheckoutAdodc.Recordset!MENU_ITEM
 ReceiptScreen.Print Tab(10); DoRight(Quantity, "##"); Space(1); "X";
 ReceiptScreen.Print Tab(15); Format(Price, "###,##,0.00");
 ReceiptScreen.Print Tab(25); DoRight(TOTAL, "###,##,0.00");
-Adodc2.Recordset.MoveNext
+CheckoutAdodc.Recordset.MoveNext
 Loop
 
 ReceiptScreen.Print Tab(5); MGrs

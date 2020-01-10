@@ -785,7 +785,7 @@ End Sub
 
 Private Sub BeverageSelector_Click()
 BeverageAdodc.Recordset.Filter = " BEVERAGE = '" & BeverageSelector & "'"
-BeveragePriceText.Text = BeverageAdodc.Recordset!PRICE
+BeveragePriceText.Text = BeverageAdodc.Recordset!Price
 stb = BeverageAdodc.Recordset!Picture
 BeverageImage.Picture = LoadPicture(stb)
 End Sub
@@ -840,7 +840,7 @@ End Sub
 
 Private Sub DessertSelector_Click()
 DessertAdodc.Recordset.Filter = " DESSERT = '" & DessertSelector & "'"
-DessertPriceText.Text = DessertAdodc.Recordset!PRICE
+DessertPriceText.Text = DessertAdodc.Recordset!Price
 stb = DessertAdodc.Recordset!Picture
 DessertImage.Picture = LoadPicture(stb)
 End Sub
@@ -884,7 +884,7 @@ End Sub
 
 Private Sub FoodSelector_Click()
 FoodAdodc.Recordset.Filter = " FOOD = '" & FoodSelector & "'"
-FoodPriceText.Text = FoodAdodc.Recordset!PRICE
+FoodPriceText.Text = FoodAdodc.Recordset!Price
 stb = FoodAdodc.Recordset!Picture
 FoodImage.Picture = LoadPicture(stb)
 End Sub

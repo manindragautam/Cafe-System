@@ -10,7 +10,7 @@ Begin VB.Form FormStart
    ScaleHeight     =   6435
    ScaleWidth      =   10755
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton Command2 
+   Begin VB.CommandButton CashierButton 
       BackColor       =   &H00C0FFFF&
       Caption         =   "CASHIER"
       BeginProperty Font 
@@ -29,7 +29,7 @@ Begin VB.Form FormStart
       Top             =   4200
       Width           =   2775
    End
-   Begin VB.CommandButton Command1 
+   Begin VB.CommandButton CustomerButton 
       BackColor       =   &H00C0FFFF&
       Caption         =   "CUSTOMER"
       BeginProperty Font 
@@ -49,7 +49,7 @@ Begin VB.Form FormStart
       Width           =   2775
    End
    Begin VB.Frame Frame1 
-      BackColor       =   &H0080C0FF&
+      BackColor       =   &H00FFFF00&
       BorderStyle     =   0  'None
       Height          =   975
       Left            =   2160
@@ -103,12 +103,13 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
-Private Sub Command1_Click()
+Private Sub CashierButton_Click()
+FormLogin.Show
+FormStart.Hide
+End Sub
+
+Private Sub CustomerButton_Click()
 FormHome.Show
 FormStart.Hide
 End Sub
 
-Private Sub Command2_Click()
-FormLogin.Show
-FormStart.Hide
-End Sub

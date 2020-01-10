@@ -9,7 +9,7 @@ Begin VB.Form FormAbout
    ScaleHeight     =   6435
    ScaleWidth      =   10755
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton Command1 
+   Begin VB.CommandButton BackButton 
       BackColor       =   &H008080FF&
       Caption         =   "BACK"
       BeginProperty Font 
@@ -81,7 +81,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Command1_Click()
+Private Sub BackButton_Click()
 FormHome.Show
 FormAbout.Hide
 End Sub
+
